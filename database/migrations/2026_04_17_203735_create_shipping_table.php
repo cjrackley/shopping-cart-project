@@ -11,18 +11,20 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('shipping', function (Blueprint $table) {
-            $table->id('shipping_ID');
-            $table->unsignedBigInteger('order_ID')->nullable();
-            $table->string('customer_name', 50);
-            $table->string('email', 50);
-            $table->string('address', 50);
-            $table->string('zip_code', 20);
+        if (!Schema::hasTable('products')) {
+            Schema::create('shipping', function (Blueprint $table) {
+                $table->id('shipping_ID');
+                $table->unsignedBigInteger('order_ID')->nullable();
+                $table->string('customer_name', 50);
+                $table->string('email', 50);
+                $table->string('address', 50);
+                $table->string('zip_code', 20);
 
-            $table->foreign('order_ID')->references('order_ID')->on('orders');
+                $table->foreign('order_ID')->references('order_ID')->on('orders');
 
-            $table->timestamps();
-        });
+                $table->timestamps();
+            });
+        }
     }
 
     /**

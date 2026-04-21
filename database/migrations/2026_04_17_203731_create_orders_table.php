@@ -12,14 +12,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('orders', function (Blueprint $table) {
-            $table->id('order_ID');
-            $table->timestamp('order_date')->nullable();
-            $table->string('status', 50)->default('in progress');
-            $table->decimal('total_amount', 10, 2)->nullable();
+        if (!schema::hasTable('orders')) {
+            Schema::create('orders', function (Blueprint $table) {
+                $table->id('order_ID');
+                $table->timestamp('order_date')->nullable();
+                $table->string('status', 50)->default('in progress');
+                $table->decimal('total_amount', 10, 2)->nullable();
 
-            $table->timestamps();
-        });
+                $table->timestamps();
+            });
+        }
     }
 
     /**
