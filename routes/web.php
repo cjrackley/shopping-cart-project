@@ -1,11 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Models\Product;
 
 Route::get('/', function () {
-
-    $products = Product::all();
-
-    dd($products);
+    return view('home');
 });
