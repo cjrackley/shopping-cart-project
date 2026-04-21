@@ -17,9 +17,7 @@ return new class extends Migration
             $table->timestamp('order_date')->nullable();
             $table->string('status', 50)->default('in progress');
             $table->decimal('total_amount', 10, 2)->nullable();
-            $table->unsignedBigInteger('shipping_ID')->nullable();
 
-            $table->foreign('shipping_ID')->references('shipping_ID')->on('shipping');
             $table->timestamps();
         });
     }
