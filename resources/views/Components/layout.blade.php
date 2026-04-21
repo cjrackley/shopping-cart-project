@@ -17,6 +17,6 @@
             <a href="/orders">Orders</a>
         </nav>
 
-        <?php echo $slot ?>
+        {{$slot}}
     </body>
 </html>
