@@ -7,7 +7,7 @@
         <h2 class="text-white text-xl">{{$product->name}}</h2>
         <p class="text-grey-400">${{$product->price}}</p>
 
-        <a href="/products/{{$product->id}}" class="text-indigo-400">
+        <a href="/products/{{$product->p_id}}" class="text-indigo-400">
             View
         </a>
     </div>
