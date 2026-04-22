@@ -30,10 +30,10 @@
           <div class="hidden md:block">
             <div class="ml-10 flex items-baseline space-x-4">
               <!-- Current: "bg-gray-950/50 text-white", Default: "text-gray-300 hover:bg-white/5 hover:text-white" -->
-              <a href="/" aria-current="page" class="{{ request() => is('/') ? 'bg-gray-950/50 text-white' : 'text-gray-300 hover:bg-white/5 hover:text-white'}}rounded-md bg-gray-950/50 px-3 py-2 text-sm font-medium text-white">Home</a>
-              <a href="/products" aria-current="page" class="{{ request() => is('/products') ? 'bg-gray-950/50 text-white' : 'text-gray-300 hover:bg-white/5 hover:text-white'}}rounded-md bg-gray-950/50 px-3 py-2 text-sm font-medium text-white">Products</a>
-              <a href="/cart" aria-current="page" class="{{ request() => is('/cart') ? 'bg-gray-950/50 text-white' : 'text-gray-300 hover:bg-white/5 hover:text-white'}}rounded-md bg-gray-950/50 px-3 py-2 text-sm font-medium text-white">Cart</a>
-              <a href="/orders" aria-current="page" class="{{ request() => is('/orders') ? 'bg-gray-950/50 text-white' : 'text-gray-300 hover:bg-white/5 hover:text-white'}}rounded-md bg-gray-950/50 px-3 py-2 text-sm font-medium text-white">Orders</a>
+              <a href="/" aria-current="page" class="rounded-md bg-gray-950/50 px-3 py-2 text-sm font-medium text-white">Home</a>
+              <a href="/products" aria-current="page" class="rounded-md bg-gray-950/50 px-3 py-2 text-sm font-medium text-white">Products</a>
+              <a href="/cart" aria-current="page" class="rounded-md bg-gray-950/50 px-3 py-2 text-sm font-medium text-white">Cart</a>
+              <a href="/orders" aria-current="page" class="rounded-md bg-gray-950/50 px-3 py-2 text-sm font-medium text-white">Orders</a>
                 
             </div>
           </div>
