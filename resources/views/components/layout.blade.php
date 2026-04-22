@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="h-full bg-gray-900">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,7 +11,7 @@
 
         </style>
     </head>
-    <body class="font-sans antialiased dark:bg-black dark:text-white/50">
+    <body class="h-full">
 <!-- Include this script tag or install `@tailwindplus/elements` via npm: -->
 <!-- <script src="https://cdn.jsdelivr.net/npm/@tailwindplus/elements@1" type="module"></script> -->
 <!--
@@ -27,16 +27,13 @@
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="flex h-16 items-center justify-between">
         <div class="flex items-center">
-          <div class="shrink-0">
-            <img src="https://www.flaticon.com/free-icon/shopping-cart_1413908" alt="Your Company" class="size-8" />
-          </div>
           <div class="hidden md:block">
             <div class="ml-10 flex items-baseline space-x-4">
               <!-- Current: "bg-gray-950/50 text-white", Default: "text-gray-300 hover:bg-white/5 hover:text-white" -->
-              <a href="/" aria-current="page" class="rounded-md bg-gray-950/50 px-3 py-2 text-sm font-medium text-white">Home</a>
-              <a href="/products" aria-current="page" class="rounded-md bg-gray-950/50 px-3 py-2 text-sm font-medium text-white">Products</a>
-              <a href="/cart" aria-current="page" class="rounded-md bg-gray-950/50 px-3 py-2 text-sm font-medium text-white">Cart</a>
-              <a href="/orders" aria-current="page" class="rounded-md bg-gray-950/50 px-3 py-2 text-sm font-medium text-white">Orders</a>
+              <a href="/" aria-current="page" class="{{ request() => is('/') ? 'bg-gray-950/50 text-white' : 'text-gray-300 hover:bg-white/5 hover:text-white'}}rounded-md bg-gray-950/50 px-3 py-2 text-sm font-medium text-white">Home</a>
+              <a href="/products" aria-current="page" class="{{ request() => is('/products') ? 'bg-gray-950/50 text-white' : 'text-gray-300 hover:bg-white/5 hover:text-white'}}rounded-md bg-gray-950/50 px-3 py-2 text-sm font-medium text-white">Products</a>
+              <a href="/cart" aria-current="page" class="{{ request() => is('/cart') ? 'bg-gray-950/50 text-white' : 'text-gray-300 hover:bg-white/5 hover:text-white'}}rounded-md bg-gray-950/50 px-3 py-2 text-sm font-medium text-white">Cart</a>
+              <a href="/orders" aria-current="page" class="{{ request() => is('/orders') ? 'bg-gray-950/50 text-white' : 'text-gray-300 hover:bg-white/5 hover:text-white'}}rounded-md bg-gray-950/50 px-3 py-2 text-sm font-medium text-white">Orders</a>
                 
             </div>
           </div>
@@ -77,9 +74,6 @@
       </div>
       <div class="border-t border-white/10 pt-4 pb-3">
         <div class="flex items-center px-5">
-          <div class="shrink-0">
-            <img src="https://www.svgrepo.com/svg/335455/profile-default" alt="" class="size-10 rounded-full outline -outline-offset-1 outline-white/10" />
-          </div>
           <div class="ml-3">
             <div class="text-base/5 font-medium text-white">Example User</div>
             <div class="text-sm font-medium text-gray-400">user@example.com</div>
