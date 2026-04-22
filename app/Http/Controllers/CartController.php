@@ -17,10 +17,12 @@ class CartController extends Controller
     public function add(Product $product){
         $cart = session()->get('cart', []);
 
-        if(isset($cart[$product->p_id])){
+        $id = $product->p_id;
+
+        if(isset($cart[$cart[$id]])){
             $cart[$product->p_id]['quantity']++;
         } else {
-            $cart[$product->id] = [
+            $cart[$id] = [
                 "name" => $product->name,
                 "price" => $product->price,
                 "quantity" => 1
@@ -38,7 +40,7 @@ class CartController extends Controller
         if(isset($cart[$id])){
             $cart[$id]['quantity'] = $request->quantity;
         }
-        
+
         session()->put('cart', $cart);
         return redirect('/cart');
     }
