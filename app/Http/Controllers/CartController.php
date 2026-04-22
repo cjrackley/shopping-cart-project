@@ -3,13 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Routing\RedirectController;
+use Illuminate\Support\Facades\Redirect;
 use App\Models\Product;
 
 class CartController extends Controller
 {
     public function index() {
-        $cart = session() ->get('card', []);
+        $cart = session() ->get('cart', []);
 
         return view('cart.index', compact('cart'));
     }
@@ -17,13 +17,13 @@ class CartController extends Controller
     public function add(Product $product){
         $cart = session()->get('cart', []);
 
-        if(isset($cart[$product->id])){
-            $cart[$product->id]['quantity']++;
+        if(isset($cart[$product->p_id])){
+            $cart[$product->p_id]['quantity']++;
         } else {
             $cart[$product->id] = [
                 "name" => $product->name,
                 "price" => $product->price,
-                "quntity" => 1
+                "quantity" => 1
             ];
         }
 
@@ -35,8 +35,8 @@ class CartController extends Controller
     public function update(Request $request, Product $product){
         $cart = session()->get('cart');
 
-        if(isset($cart[$product->id])){
-            $cart[$product->id]['quantity'] = $request->quantity;
+        if(isset($cart[$product->p_id])){
+            $cart[$product->p_id]['quantity'] = $request->quantity;
             session()->put('cart', $cart);
         }
         return back();
@@ -44,7 +44,7 @@ class CartController extends Controller
 
     public function remove(Product $product){
         $cart = session() -> get('cart');
-        unset($cart[$product->id]);
+        unset($cart[$product->p_id]);
 
         session()->put('cart', $cart);
 
