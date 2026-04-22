@@ -6,11 +6,17 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
+    protected $primarykey = 'p_id';
+
     protected $fillable = [
         'sku',
         'name',
         'description',
         'price',
-        'image'
+        'img_url'
     ];
+
+    public function GetRouteKeyName(){
+        return 'p_id';
+    }
 }
