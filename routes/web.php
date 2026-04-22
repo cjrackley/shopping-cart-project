@@ -6,6 +6,14 @@ Route::get('/', function () {
     return view('home');
 });
 
+Route::get('/products', function () {
+    return view('products');
+});
+
+Route::get('/cart', function () {
+    return view('cart');
+});
+
 Route::get('/orders', function () {
     return view('orders');
 });
