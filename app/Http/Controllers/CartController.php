@@ -37,8 +37,9 @@ class CartController extends Controller
 
         if(isset($cart[$id])){
             $cart[$id]['quantity'] = $request->quantity;
-            session()->put('cart', $cart);
         }
+        
+        session()->put('cart', $cart);
         return redirect('/cart');
     }
 

@@ -14,7 +14,7 @@ Route::get('/products', [ProductController::class, 'index']);
 Route::get('/products/{product}', [ProductController::class, 'show']);
 
 Route::get('/cart', [CartController::class, 'index']);
-Route::post('/cart/add/{product}', [CartController::class, 'add']);
+Route::post('/cart/add/{id}', [CartController::class, 'add']);
 Route::post('/cart/update/{id}', [CartController::class, 'update']);
 Route::post('/cart/remove/{id}', [CartController::class, 'remove']);
 
