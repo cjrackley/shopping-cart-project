@@ -8,7 +8,7 @@ use App\Models\Order;
 class OrderController extends Controller
 {
     public function index() {
-        return view('orders', [
+        return view('orders.index', [
             'orders' => Order::latest()->get()
         ]);
     }

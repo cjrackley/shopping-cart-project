@@ -11,7 +11,7 @@ class CartController extends Controller
     public function index() {
         $cart = session() ->get('card', []);
 
-        return view('cart', compact('cart'));
+        return view('cart.index', compact('cart'));
     }
 
     public function add(Product $product){
