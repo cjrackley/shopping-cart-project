@@ -27,11 +27,16 @@
         <form method="POST" action="/checkout" class="mt-6">
             @csrf
 
-            <input name="name" placeholder="Name" class="block mb-2 p-2">
-            <input name="address" placeholder="Address" class="block mb-2 p-2">
+            <input name="customer_name" placeholder="Name" class="block mb-2 p-2">
 
-            <button class="bg-green-600 text-white px-4 py-2 rounded">
-                Checkout
+    <input name="email" placeholder="Email" class="block mb-2 p-2">
+
+    <input name="address" placeholder="Street Address" class="block mb-2 p-2">
+
+    <input name="zip_code" placeholder="ZIP Code" class="block mb-2 p-2">
+
+    <button class="bg-green-600 text-white px-4 py-2 rounded">
+        Checkout
             </button>
         </form>
     @endif

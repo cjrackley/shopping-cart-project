@@ -39,15 +39,15 @@ class CartController extends Controller
             $cart[$id]['quantity'] = $request->quantity;
             session()->put('cart', $cart);
         }
-        return back();
+        return redirect('/cart');
     }
 
-    public function remove(Product $product){
-        $cart = session() -> get('cart');
-        unset($cart[$product->p_id]);
+    public function remove($id){
+        $cart = session() -> get('cart', []);
+        unset($cart[$id]);
 
         session()->put('cart', $cart);
 
-        return back();
+        return redirect('/cart');
     }
 }
