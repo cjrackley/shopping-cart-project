@@ -7,9 +7,16 @@ use Illuminate\Database\Eloquent\Model;
 class Order extends Model
 {
     protected $fillable = [
-        'name',
-        'address',
-        'items',
-        'total'
+        'date',
+        'status',
+        'total_amount'
     ];
+
+    public function items() {
+        return $this->hasMany(OrderItem::class, 'order_id');
+    }
+
+    public function shipping() {
+        return $this->hasOne(Shipping::class, 'order_id');
+    }
 }

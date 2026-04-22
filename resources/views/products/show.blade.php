@@ -6,7 +6,7 @@
     <div class="bg-gray-800 p-6 rounded">
         
         @if($product->image)
-            <img src="{{ $product->image }}" class="mb-4 w-64">
+            <img src="{{ $product->img_url }}" class="mb-4 w-64">
         @endif
 
         <h2 class="text-white text-2xl mb-2">
@@ -22,7 +22,7 @@
         </p>
 
         <!-- Add to Cart -->
-        <form method="POST" action="/cart/add/{{ $product->id }}">
+        <form method="POST" action="/cart/add/{{ $product->p_id }}">
             @csrf
             <button class="bg-indigo-600 px-4 py-2 text-white rounded">
                 Add to Cart

@@ -1,7 +1,7 @@
 <x-layout>
     <x-slot:heading>
         Cart Page
-    </x-slot:heading`>
+    </x-slot:heading>
 
     Cart Content
     @if(empty($cart))
@@ -10,7 +10,7 @@
         @foreach($cart as $id => $item)
             <div class="bg-gray-800 p-4 mb-4 rounded">
                 <h2 class="text-white">{{$item['name']}}</h2>
-                <p class="text-grey-400">${{$item['prie']}}</p>
+                <p class="text-grey-400">${{$item['price']}}</p>
 
                 <form method="POST" action="/cart/update/{{$id}}">
                     @csrf
@@ -23,6 +23,7 @@
                     <button class="text-red-400">Remove</button>
                 </form>
             </div>
+        @endforeach
         <form method="POST" action="/checkout" class="mt-6">
             @csrf
 
@@ -33,4 +34,5 @@
                 Checkout
             </button>
         </form>
+    @endif
 </x-layout>
