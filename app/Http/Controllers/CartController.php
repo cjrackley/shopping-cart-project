@@ -32,11 +32,11 @@ class CartController extends Controller
         return Redirect('/cart');
     }
 
-    public function update(Request $request, Product $product){
-        $cart = session()->get('cart');
+    public function update(Request $request, $id){
+        $cart = session()->get('cart', []);
 
-        if(isset($cart[$product->p_id])){
-            $cart[$product->p_id]['quantity'] = $request->quantity;
+        if(isset($cart[$id])){
+            $cart[$id]['quantity'] = $request->quantity;
             session()->put('cart', $cart);
         }
         return back();
