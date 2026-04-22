@@ -27,14 +27,14 @@ class OrderController extends Controller
         });
 
         $order = Order::create([
-            'date' => now(),
+            'order_date' => now(),
             'status' => 'pending',
             'total_amount' => $total
         ]);
 
         foreach($cart as $id => $item) {
             OrderItem::create([
-                'order_id' => $order->id,
+                'order_id' => $order->order_id,
                 'p_id' => $id,
                 'quantity' => $item['quantity'],
                 'unit_price' => $item['price']
@@ -42,7 +42,7 @@ class OrderController extends Controller
         }
 
         Shipping::create([
-            'order_id' => $order->id,
+            'order_id' => $order->order_id,
             'customer_name' => $request->customer_name,
             'email' => $request->email,
             'address' => $request->address,
