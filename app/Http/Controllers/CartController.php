@@ -14,12 +14,14 @@ class CartController extends Controller
         return view('cart.index', compact('cart'));
     }
 
-    public function add(Product $product){
+    public function add($id){
+        $product = Product::where('p_id', $id)->firstOrFail();
+
         $cart = session()->get('cart', []);
 
-        $id = $product->p_id;
+        $key = $product->p_id;
 
-        if(isset($cart[$cart[$id]])){
+        if(isset($cart[$cart[$key]])){
             $cart[$product->p_id]['quantity']++;
         } else {
             $cart[$id] = [
@@ -38,7 +40,7 @@ class CartController extends Controller
         $cart = session()->get('cart', []);
 
         if(isset($cart[$id])){
-            $cart[$id]['quantity'] = $request->quantity;
+            $cart[$id]['quantity'] = (int) $request->quantity;
         }
 
         session()->put('cart', $cart);
@@ -47,7 +49,9 @@ class CartController extends Controller
 
     public function remove($id){
         $cart = session() -> get('cart', []);
-        unset($cart[$id]);
+        if(isset($cart[$id])) {
+            unset($cart[$id]);
+        }
 
         session()->put('cart', $cart);
 

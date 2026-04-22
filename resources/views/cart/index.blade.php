@@ -40,4 +40,13 @@
             </button>
         </form>
     @endif
+    @php
+        $total = collect($cart)->sum(function($item){
+            return $item['price'] * $item['quantity'];
+        });
+    @endphp
+
+    <div class="text-white mt-4">
+        <strong>Total: ${{$total}}</strong>
+    </div>
 </x-layout>
