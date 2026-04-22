@@ -11,7 +11,7 @@ Route::get('/', function () {
 });
 
 Route::get('/products', [ProductController::class, 'index']);
-Route::get('products/{product}', [ProductController::class, 'show']);
+Route::get('/products/{product}', [ProductController::class, 'show']);
 
 Route::get('/cart', [CartController::class, 'index']);
 Route::get('/cart/add/{product}', [CartController::class, 'add']);
