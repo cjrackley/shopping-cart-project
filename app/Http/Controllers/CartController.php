@@ -21,10 +21,10 @@ class CartController extends Controller
 
         $key = $product->p_id;
 
-        if(isset($cart[$cart[$key]])){
+        if(isset($cart[$key])){
             $cart[$product->p_id]['quantity']++;
         } else {
-            $cart[$id] = [
+            $cart[$key] = [
                 "name" => $product->name,
                 "price" => $product->price,
                 "quantity" => 1
