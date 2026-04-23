@@ -8,10 +8,11 @@ class Order extends Model
 {
     protected $primaryKey = 'order_id';
     public $incrementing = true;
-    protected $KeyType = 'int';
-
+    public $timestamps = false;
+    protected $keyType = 'int';
     protected $fillable = [
-        'date',
+
+        'order_date',
         'status',
         'total_amount'
     ];
