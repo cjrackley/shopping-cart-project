@@ -8,6 +8,7 @@ class Order extends Model
 {
     protected $primaryKey = 'order_id';
     public $incrementing = true;
+    public $timestamps = false;
     protected $keyType = 'int';
     protected $fillable = [
 
