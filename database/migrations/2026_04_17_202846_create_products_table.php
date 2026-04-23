@@ -13,7 +13,7 @@ return new class extends Migration
     {
         if (!Schema::hasTable('products')) {
             Schema::create('products', function (Blueprint $table) {
-                $table->id('P_ID');
+                $table->id('p_id');
                 $table->string('name', 50);
                 $table->text('description')->nullable();
                 $table->decimal('price', 10, 2);
