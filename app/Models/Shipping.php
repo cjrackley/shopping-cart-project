@@ -8,6 +8,7 @@ class Shipping extends Model
 {
 
     protected $table = 'shipping_id';
+    protected $primaryKey = 'shipping_id';
 
     protected $fillable = [
         'order_id',
