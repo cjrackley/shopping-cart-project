@@ -19,4 +19,8 @@ class Product extends Model
     public function GetRouteKeyName(){
         return 'p_id';
     }
+
+    public function orderItems(){
+        return $this->hasMany(OrderItem::class, 'p_id');
+    }
 }
