@@ -13,8 +13,8 @@ return new class extends Migration
     {
         if (!Schema::hasTable('products')) {
             Schema::create('shipping', function (Blueprint $table) {
-                $table->id('shipping_ID');
-                $table->unsignedBigInteger('order_ID')->nullable();
+                $table->id('shipping_id');
+                $table->unsignedBigInteger('order_id')->nullable()->constrained('orders', 'order_id');
                 $table->string('customer_name', 50);
                 $table->string('email', 50);
                 $table->string('address', 50);
