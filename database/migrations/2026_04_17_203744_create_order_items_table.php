@@ -13,14 +13,14 @@ return new class extends Migration
     {
         if (!Schema::hasTable('order_items')) {
             Schema::create('order_items', function (Blueprint $table) {
-                $table->id('order_item_ID');
-                $table->unsignedBigInteger('order_ID');
-                $table->unsignedBigInteger('P_ID');
+                $table->id('order_item_id');
+                $table->unsignedBigInteger('order_id');
+                $table->unsignedBigInteger('P_id');
                 $table->integer('quantity');
                 $table->decimal('unit_price', 10, 2);
 
-                $table->foreign('order_ID')->references('order_ID')->on('orders');
-                $table->foreign('P_ID')->references('P_ID')->on('products');
+                $table->foreign('order_id')->references('order_id')->on('orders');
+                $table->foreign('p_id')->references('p_id')->on('products');
 
                 $table->timestamps();
             });
