@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        if (!Schema::hasTable('products')) {
+        if (!Schema::hasTable('shipping')) {
             Schema::create('shipping', function (Blueprint $table) {
                 $table->id('shipping_id');
                 $table->unsignedBigInteger('order_id')->nullable()->constrained('orders', 'order_id');
@@ -19,8 +19,6 @@ return new class extends Migration
                 $table->string('email', 50);
                 $table->string('address', 50);
                 $table->string('zip_code', 20);
-
-                $table->foreign('order_ID')->references('order_ID')->on('orders');
 
                 $table->timestamps();
             });
