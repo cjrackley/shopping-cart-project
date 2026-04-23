@@ -10,6 +10,7 @@ class Shipping extends Model
     protected $primaryKey = 'shipping_id';
     public $timestamps = false;
 
+    // 
     protected $fillable = [
         'order_id',
         'customer_name',
